@@ -1,15 +1,892 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=https://www.activo.bacntivo.online/">
-  <link rel="canonical" href="https://www.activo.bacntivo.online/">
-  <title>Redirigiendo...</title>
-  <script>
-    window.location.replace("https://www.activo.bacntivo.online/");
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activo Empresa Fila | Registro de ingresos y gastos para tu negocio</title>
+  <meta name="description" content="Blog educativo independiente sobre cómo llevar un registro simple de ingresos y gastos. Contenido informativo gratuito para emprendedores venezolanos." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="MOISES ELIAS LARA CANO" />
+  <meta property="og:title" content="Activo Empresa Fila — Blog educativo de finanzas para emprendedores" />
+  <meta property="og:description" content="Aprende a registrar ingresos y gastos de tu negocio. Blog independiente, gratuito y educativo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://activoempresafila.blog" />
+  <link rel="canonical" href="https://activoempresafila.blog" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Activo Empresa Fila",
+    "url": "https://activoempresafila.blog",
+    "description": "Blog educativo e informativo sobre registro de ingresos y gastos para pequeños negocios.",
+    "inLanguage": "es",
+    "isAccessibleForFree": true,
+    "publishingPrinciples": "https://activoempresafila.blog/#politica-editorial",
+    "publisher": {
+      "@type": "Person",
+      "name": "MOISES ELIAS LARA CANO",
+      "email": "soporte@activoempresarfila.blog",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle 145",
+        "addressLocality": "Valencia",
+        "postalCode": "2002",
+        "addressRegion": "Carabobo",
+        "addressCountry": "VE"
+      }
+    }
+  }
   </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange:    #D4550A;
+      --orange-lt: #FEF0E8;
+      --orange-md: #F28040;
+      --olive:     #4A7C59;
+      --olive-lt:  #EEF5F1;
+      --beige:     #FDF6EE;
+      --ink:       #2C2416;
+      --ink-mid:   #5A4F44;
+      --ink-mu:    #9A8F84;
+      --border:    #E8DDD3;
+      --white:     #FFFFFF;
+      --fd: 'Lora', Georgia, serif;
+      --fb: 'Nunito Sans', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--fb); background: var(--beige); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--beige); }
+    ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+
+    /* ── TOP BAR ── */
+    .topbar { background: var(--ink); padding: 7px 24px; display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+    .topbar span { font-family: var(--fb); font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.55); letter-spacing: 0.06em; text-transform: uppercase; }
+    .topbar .hi { color: var(--orange-md); }
+    .topbar .dot { color: rgba(255,255,255,0.18); }
+
+    /* ── HEADER ── */
+    .hdr { background: var(--white); border-bottom: 2px solid var(--orange); position: sticky; top: 0; z-index: 200; box-shadow: 0 2px 16px rgba(44,36,22,0.07); }
+    .hdr-inner { max-width: 1180px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+    .logo-emblem { width: 44px; height: 44px; background: var(--orange); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .logo-name { font-family: var(--fd); font-size: 17px; font-weight: 700; color: var(--ink); line-height: 1; }
+    .logo-sub { font-size: 10px; font-weight: 600; color: var(--ink-mu); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+    .nav { display: flex; align-items: center; gap: 2px; }
+    .nav a { font-size: 13.5px; font-weight: 600; color: var(--ink-mid); text-decoration: none; padding: 8px 14px; border-radius: 6px; transition: all 0.18s; }
+    .nav a:hover { background: var(--orange-lt); color: var(--orange); }
+    .nav-cta { background: var(--orange) !important; color: #fff !important; border-radius: 7px !important; margin-left: 6px; }
+    .nav-cta:hover { background: #b84608 !important; color: #fff !important; }
+    .ham { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .ham span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: all 0.28s; }
+
+    /* ── HERO — split design ── */
+    .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 540px; }
+    .hero-left { background: var(--beige); padding: 72px 56px 72px 64px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+    .hero-left::before { content: ''; position: absolute; top: -60px; left: -60px; width: 240px; height: 240px; background: radial-gradient(ellipse, rgba(212,85,10,0.08) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .hero-right { background: var(--ink); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .hero-right-pattern { position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 0, transparent 50%); background-size: 20px 20px; }
+    .hero-right-glow { position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 50%, rgba(212,85,10,0.25) 0%, transparent 65%); }
+    .hero-right-content { position: relative; z-index: 2; padding: 48px 40px; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--orange-lt); border: 1.5px solid rgba(212,85,10,0.2); border-radius: 100px; padding: 6px 16px; margin-bottom: 20px; }
+    .hero-tag span { font-size: 11px; font-weight: 800; color: var(--orange); letter-spacing: 0.07em; text-transform: uppercase; }
+    .hero-tag-dot { width: 6px; height: 6px; background: var(--orange); border-radius: 50%; }
+    .hero-h1 { font-family: var(--fd); font-size: clamp(28px, 3.6vw, 46px); font-weight: 700; color: var(--ink); line-height: 1.18; letter-spacing: -0.02em; margin-bottom: 18px; }
+    .hero-h1 em { font-style: italic; color: var(--orange); }
+    .hero-p { font-size: 15px; color: var(--ink-mid); line-height: 1.75; margin-bottom: 32px; max-width: 440px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+    .btn-a { display: inline-flex; align-items: center; gap: 8px; background: var(--orange); color: #fff; font-family: var(--fb); font-size: 14px; font-weight: 700; padding: 13px 28px; border-radius: 8px; text-decoration: none; border: 2px solid var(--orange); transition: all 0.22s; }
+    .btn-a:hover { background: #b84608; border-color: #b84608; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(212,85,10,0.3); }
+    .btn-b { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--ink-mid); font-family: var(--fb); font-size: 14px; font-weight: 600; padding: 13px 24px; border-radius: 8px; text-decoration: none; border: 1.5px solid var(--border); transition: all 0.22s; cursor: pointer; }
+    .btn-b:hover { border-color: var(--orange); color: var(--orange); background: var(--orange-lt); }
+    /* stats */
+    .hero-kpis { display: flex; gap: 0; }
+    .kpi { padding-right: 28px; margin-right: 28px; border-right: 1px solid var(--border); }
+    .kpi:last-child { border: none; margin: 0; padding: 0; }
+    .kpi-n { font-family: var(--fd); font-size: 28px; font-weight: 700; color: var(--orange); line-height: 1; }
+    .kpi-l { font-size: 11px; font-weight: 600; color: var(--ink-mu); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 3px; }
+    /* Panel "qué es / qué no" en hero-right */
+    .id-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 26px; width: 100%; max-width: 340px; }
+    .id-card-hd { font-size: 10px; font-weight: 800; color: rgba(255,255,255,0.3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+    .id-card-hd::before, .id-card-hd::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+    .id-row { display: flex; align-items: flex-start; gap: 8px; font-size: 12.5px; color: rgba(255,255,255,0.6); line-height: 1.45; margin-bottom: 8px; }
+    .id-sect-lbl { font-size: 10px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; margin-top: 14px; }
+    .id-sect-lbl.y { color: #6EE7B7; }
+    .id-sect-lbl.n { color: #FCA5A5; }
+    .id-div { height: 1px; background: rgba(255,255,255,0.08); margin: 14px 0; }
+    .id-owner { display: flex; align-items: center; gap: 10px; background: rgba(212,85,10,0.2); border: 1px solid rgba(212,85,10,0.3); border-radius: 10px; padding: 12px 14px; margin-top: 16px; }
+    .id-av { width: 38px; height: 38px; background: linear-gradient(135deg, var(--orange), var(--orange-md)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--fd); font-size: 16px; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .id-on { font-size: 11.5px; font-weight: 700; color: #fff; line-height: 1.3; }
+    .id-or { font-size: 10.5px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+    /* ── ADS ── */
+    .ads { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 14px 24px; }
+    .ads-in { max-width: 1180px; margin: 0 auto; }
+    .ads-box { background: var(--beige); border: 1.5px dashed var(--border); border-radius: 8px; height: 88px; display: flex; align-items: center; justify-content: center; color: var(--ink-mu); font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* ── ARTÍCULOS ── */
+    .arts { max-width: 1180px; margin: 0 auto; padding: 68px 24px; }
+    .sec-hd { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 44px; gap: 16px; flex-wrap: wrap; }
+    .sec-ey { font-size: 11px; font-weight: 800; color: var(--orange); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 7px; display: flex; align-items: center; gap: 8px; }
+    .sec-ey::before { content: ''; display: block; width: 20px; height: 2px; background: var(--orange); border-radius: 1px; }
+    .sec-tt { font-family: var(--fd); font-size: clamp(22px,2.8vw,32px); font-weight: 700; color: var(--ink); line-height: 1.2; }
+    .sec-ds { font-size: 11.5px; color: var(--ink-mu); text-align: right; max-width: 240px; line-height: 1.5; }
+
+    /* Lista tipo revista */
+    .arts-list { display: flex; flex-direction: column; gap: 0; }
+    .art-item { display: grid; grid-template-columns: 80px 1fr; gap: 0; border-bottom: 1px solid var(--border); padding: 28px 0; cursor: pointer; transition: background 0.18s; border-radius: 8px; }
+    .art-item:hover { background: var(--white); padding-left: 16px; padding-right: 16px; margin-left: -16px; margin-right: -16px; }
+    .art-item:first-child { border-top: 1px solid var(--border); }
+    .art-num { font-family: var(--fd); font-size: 38px; font-weight: 700; color: var(--border); line-height: 1; padding-top: 4px; transition: color 0.18s; }
+    .art-item:hover .art-num { color: var(--orange-lt); }
+    .art-info { padding-left: 0; }
+    .art-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .tag { font-size: 10px; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; }
+    .t-or { background: var(--orange-lt); color: var(--orange); }
+    .t-ol { background: var(--olive-lt); color: var(--olive); }
+    .t-am { background: #FEF9E7; color: #B7791F; }
+    .t-vi { background: #F5F0FF; color: #6D28D9; }
+    .art-date { font-size: 11px; color: var(--ink-mu); }
+    .art-title { font-family: var(--fd); font-size: 19px; font-weight: 700; color: var(--ink); line-height: 1.35; margin-bottom: 8px; transition: color 0.18s; }
+    .art-item:hover .art-title { color: var(--orange); }
+    .art-exc { font-size: 13.5px; color: var(--ink-mid); line-height: 1.65; margin-bottom: 12px; }
+    .art-foot { display: flex; align-items: center; justify-content: space-between; }
+    .art-auth { font-size: 11.5px; color: var(--ink-mu); }
+    .art-auth strong { color: var(--ink-mid); font-weight: 700; }
+    .art-cta { font-size: 12.5px; font-weight: 800; color: var(--orange); display: flex; align-items: center; gap: 5px; letter-spacing: 0.02em; }
+    .art-item:hover .art-cta { gap: 9px; }
+    .art-notice { font-size: 10.5px; color: var(--ink-mu); font-style: italic; margin-top: 8px; }
+
+    /* ARTÍCULO DESTACADO (primero, diferente) */
+    .art-feat { background: var(--white); border: 1.5px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 6px; cursor: pointer; transition: all 0.22s; display: grid; grid-template-columns: 1fr 260px; gap: 32px; align-items: center; }
+    .art-feat:hover { box-shadow: 0 12px 40px rgba(44,36,22,0.10); border-color: var(--orange); transform: translateY(-2px); }
+    .art-feat .art-title { font-size: 22px; margin-bottom: 12px; }
+    .art-feat .art-exc { font-size: 14.5px; }
+    .feat-visual { background: linear-gradient(135deg, var(--ink) 0%, #3D3020 100%); border-radius: 12px; height: 180px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .feat-visual::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 40%, rgba(212,85,10,0.3) 0%, transparent 65%); }
+    .feat-visual svg { position: relative; z-index: 1; }
+
+    /* ── ACERCA DE ── */
+    .about { background: var(--white); border-top: 1px solid var(--border); padding: 68px 24px; }
+    .about-in { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 56px; align-items: start; }
+    .about-card { background: var(--beige); border: 1.5px solid var(--border); border-radius: 16px; padding: 28px; }
+    .about-avatar { width: 72px; height: 72px; background: linear-gradient(135deg, var(--orange), var(--orange-md)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--fd); font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 16px; }
+    .about-name { font-family: var(--fd); font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+    .about-role { font-size: 12px; color: var(--ink-mu); font-weight: 600; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .about-ci { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--ink-mid); margin-bottom: 8px; line-height: 1.45; }
+    .about-ci a { color: var(--orange); text-decoration: none; }
+    .about-ci a:hover { text-decoration: underline; }
+    .about-ind { background: var(--olive-lt); border: 1px solid rgba(74,124,89,0.25); border-left: 3px solid var(--olive); border-radius: 8px; padding: 14px 16px; margin-top: 18px; }
+    .about-ind p { font-size: 12.5px; color: var(--ink-mid); line-height: 1.65; }
+    .about-ind strong { color: var(--olive); }
+
+    /* ── CONTACTO ── */
+    .contact { background: var(--beige); border-top: 1px solid var(--border); padding: 68px 24px; }
+    .contact-in { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .cf-box { background: var(--white); border: 1.5px solid var(--border); border-radius: 16px; padding: 32px; }
+    .cf-box h3 { font-family: var(--fd); font-size: 21px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .cf-box > p { font-size: 13px; color: var(--ink-mu); margin-bottom: 22px; line-height: 1.6; }
+    .fg { margin-bottom: 16px; }
+    .fl { display: block; font-size: 12px; font-weight: 700; color: var(--ink-mid); margin-bottom: 6px; letter-spacing: 0.03em; }
+    .fi, .ft { width: 100%; font-family: var(--fb); font-size: 14px; color: var(--ink); background: var(--beige); border: 1.5px solid var(--border); border-radius: 8px; padding: 11px 14px; transition: border-color 0.18s, box-shadow 0.18s; outline: none; }
+    .fi:focus, .ft:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(212,85,10,0.10); background: var(--white); }
+    .ft { resize: vertical; min-height: 110px; }
+    .cf-note { font-size: 11px; color: var(--ink-mu); margin-bottom: 16px; line-height: 1.55; }
+    .cf-note button { background: none; border: none; color: var(--orange); font-size: 11px; cursor: pointer; text-decoration: underline; font-family: var(--fb); padding: 0; }
+    .cf-submit { width: 100%; background: var(--orange); color: #fff; font-family: var(--fb); font-size: 14px; font-weight: 800; padding: 13px 24px; border-radius: 8px; border: none; cursor: pointer; transition: all 0.22s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .cf-submit:hover { background: #b84608; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(212,85,10,0.25); }
+    .cf-ok { display: none; background: var(--olive-lt); border: 1px solid rgba(74,124,89,0.3); border-radius: 8px; padding: 16px; text-align: center; color: var(--olive); font-size: 14px; font-weight: 700; margin-top: 14px; }
+    .cinfo h3 { font-family: var(--fd); font-size: 21px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .cinfo > p { font-size: 13.5px; color: var(--ink-mu); line-height: 1.7; margin-bottom: 26px; }
+    .ci-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+    .ci-ic { width: 40px; height: 40px; background: var(--orange-lt); border: 1.5px solid rgba(212,85,10,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+    .ci-lb { font-size: 11px; font-weight: 800; color: var(--ink-mu); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
+    .ci-vl { font-size: 13.5px; color: var(--ink); font-weight: 600; }
+    .ci-vl a { color: var(--orange); text-decoration: none; }
+    .ci-vl a:hover { text-decoration: underline; }
+    .anti-ph { background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 14px 16px; margin-top: 22px; }
+    .anti-ph p { font-size: 12px; color: #92601A; line-height: 1.6; }
+
+    /* ── FOOTER ── */
+    .ftr { background: var(--ink); padding: 56px 24px 0; }
+    .ftr-in { max-width: 1180px; margin: 0 auto; }
+    .ftr-aff { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-left: 3px solid var(--orange); border-radius: 10px; padding: 14px 18px; margin-bottom: 44px; }
+    .ftr-aff p { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.65; }
+    .ftr-aff strong { color: rgba(255,255,255,0.7); }
+    .ftr-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 44px; padding-bottom: 44px; }
+    .ftr-ln { font-family: var(--fd); font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .ftr-ls { font-size: 10px; color: rgba(255,255,255,0.28); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px; }
+    .ftr-ab { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 18px; }
+    .ftr-ci { display: flex; align-items: flex-start; gap: 8px; font-size: 12.5px; color: rgba(255,255,255,0.45); margin-bottom: 8px; line-height: 1.45; }
+    .ftr-ci a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.18s; }
+    .ftr-ci a:hover { color: var(--orange-md); }
+    .ftr-ct { font-size: 10px; font-weight: 800; color: rgba(255,255,255,0.28); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .ftr-lk { list-style: none; }
+    .ftr-lk li { margin-bottom: 9px; }
+    .ftr-lk a { font-size: 13.5px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.18s; display: inline-flex; align-items: center; gap: 6px; }
+    .ftr-lk a:hover { color: var(--orange-md); }
+    .ftr-lk button { background: none; border: none; cursor: pointer; font-size: 13.5px; color: rgba(255,255,255,0.5); transition: color 0.18s; font-family: var(--fb); padding: 0; text-align: left; display: inline-flex; align-items: center; gap: 6px; }
+    .ftr-lk button:hover { color: var(--orange-md); }
+    .ftr-bot { border-top: 1px solid rgba(255,255,255,0.07); padding: 18px 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .ftr-bot p { font-size: 12px; color: rgba(255,255,255,0.26); }
+
+    /* ── OVERLAYS ARTÍCULOS ── */
+    .aov { display: none; position: fixed; inset: 0; z-index: 500; background: rgba(20,14,6,0.72); backdrop-filter: blur(4px); align-items: center; justify-content: center; padding: 20px; }
+    .aov.open { display: flex; animation: fi 0.2s ease; }
+    @keyframes fi { from { opacity: 0; } to { opacity: 1; } }
+    .aov-box { background: var(--white); border-radius: 18px; max-width: 740px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 32px 96px rgba(0,0,0,0.3); animation: su 0.25s cubic-bezier(0.4,0,0.2,1); }
+    @keyframes su { from { transform: translateY(16px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .aov-hdr { padding: 26px 30px 20px; border-bottom: 1.5px solid var(--border); position: sticky; top: 0; background: var(--white); z-index: 1; border-radius: 18px 18px 0 0; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    .aov-tt { font-family: var(--fd); font-size: 21px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+    .aov-mt { font-size: 11.5px; color: var(--ink-mu); margin-top: 6px; }
+    .aov-cl { width: 36px; height: 36px; background: var(--beige); border: 1.5px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--ink); font-size: 16px; font-weight: 700; font-family: var(--fb); flex-shrink: 0; transition: all 0.18s; }
+    .aov-cl:hover { background: var(--orange); color: #fff; border-color: var(--orange); }
+    .aov-bd { padding: 26px 30px 30px; }
+    .aov-bd h2 { font-family: var(--fd); font-size: 17px; font-weight: 700; color: var(--ink); margin: 22px 0 10px; padding-left: 12px; border-left: 3px solid var(--orange); }
+    .aov-bd h2:first-child { margin-top: 0; }
+    .aov-bd p { font-size: 14px; color: var(--ink-mid); line-height: 1.82; margin-bottom: 14px; }
+    .aov-bd ul, .aov-bd ol { padding-left: 20px; margin-bottom: 14px; }
+    .aov-bd li { font-size: 14px; color: var(--ink-mid); line-height: 1.75; margin-bottom: 6px; }
+    .aov-bd strong { color: var(--ink); }
+    .aov-tip { background: var(--orange-lt); border: 1px solid rgba(212,85,10,0.2); border-radius: 10px; padding: 14px 16px; margin: 18px 0; font-size: 13.5px; color: var(--ink-mid); line-height: 1.65; }
+    .aov-tip strong { color: var(--orange); }
+    .aov-nc { font-size: 11.5px; color: var(--ink-mu); font-style: italic; margin-top: 24px; padding-top: 14px; border-top: 1.5px solid var(--border); }
+
+    /* ── OVERLAYS LEGALES ── */
+    .lov { display: none; position: fixed; inset: 0; z-index: 600; background: rgba(20,14,6,0.72); backdrop-filter: blur(4px); align-items: center; justify-content: center; padding: 20px; }
+    .lov.open { display: flex; animation: fi 0.2s ease; }
+    .lov-box { background: var(--white); border-radius: 18px; max-width: 680px; width: 100%; max-height: 88vh; overflow-y: auto; box-shadow: 0 32px 96px rgba(0,0,0,0.28); animation: su 0.25s cubic-bezier(0.4,0,0.2,1); }
+    .lov-hdr { padding: 24px 28px 16px; border-bottom: 1.5px solid var(--border); position: sticky; top: 0; background: var(--white); z-index: 1; border-radius: 18px 18px 0 0; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    .lov-tt { font-family: var(--fd); font-size: 19px; font-weight: 700; color: var(--ink); }
+    .lov-mt { font-size: 11px; color: var(--ink-mu); margin-top: 4px; }
+    .lov-cl { width: 36px; height: 36px; background: var(--beige); border: 1.5px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--ink); font-size: 16px; font-weight: 700; font-family: var(--fb); flex-shrink: 0; transition: all 0.18s; }
+    .lov-cl:hover { background: var(--orange); color: #fff; border-color: var(--orange); }
+    .lov-bd { padding: 24px 28px 28px; }
+    .lov-sec { margin-bottom: 20px; }
+    .lov-sec:last-child { margin-bottom: 0; }
+    .lov-sec h3 { font-size: 12px; font-weight: 800; color: var(--orange); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 9px; padding-left: 10px; border-left: 3px solid var(--orange); }
+    .lov-sec p { font-size: 13.5px; color: var(--ink-mid); line-height: 1.75; }
+    .lov-sec a { color: var(--orange); }
+
+    /* ── COOKIE ── */
+    .cook { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); z-index: 700; background: var(--ink); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 17px 22px; display: flex; align-items: center; gap: 18px; box-shadow: 0 16px 48px rgba(0,0,0,0.32); max-width: min(680px,calc(100vw - 32px)); width: 100%; animation: su 0.4s cubic-bezier(0.4,0,0.2,1); }
+    .cook.hidden { display: none !important; }
+    .cook-tx { flex: 1; font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.5; }
+    .cook-tx button { background: none; border: none; color: var(--orange-md); font-size: 13px; font-family: var(--fb); cursor: pointer; text-decoration: underline; padding: 0; }
+    .cook-btn { background: var(--orange); color: #fff; font-family: var(--fb); font-size: 13px; font-weight: 800; padding: 10px 22px; border-radius: 8px; border: none; cursor: pointer; white-space: nowrap; flex-shrink: 0; transition: opacity 0.18s; }
+    .cook-btn:hover { opacity: 0.88; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .about-in { grid-template-columns: 1fr; }
+      .ftr-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .art-feat { grid-template-columns: 1fr; }
+      .feat-visual { height: 120px; }
+    }
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .ham { display: flex; }
+      .hero-left { padding: 56px 24px; }
+      .contact-in { grid-template-columns: 1fr; }
+      .ftr-grid { grid-template-columns: 1fr; gap: 24px; }
+      .aov-hdr, .aov-bd, .lov-hdr, .lov-bd { padding: 20px; }
+      .art-item { grid-template-columns: 56px 1fr; }
+      .art-num { font-size: 28px; }
+    }
+  </style>
 </head>
 <body>
-  <p>Redirigiendo a <a href="https://www.activo.bacntivo.online/">activo.bacntivo.online</a>...</p>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span class="hi">Blog independiente · No afiliado a ninguna entidad</span>
+  <span class="dot">·</span>
+  <span>Solo contenido informativo y educativo</span>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="#inicio" class="logo">
+      <div class="logo-emblem">
+        <svg width="26" height="24" viewBox="0 0 26 24" fill="none">
+          <path d="M3 20L8 10L13 16L19 7L23 20" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="17" y="5" width="5" height="5" rx="1.5" stroke="white" stroke-width="1.8"/>
+        </svg>
+      </div>
+      <div>
+        <div class="logo-name">Activo Empresa Fila</div>
+        <div class="logo-sub">Blog educativo · Finanzas para PYMES</div>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="#articulos">Artículos</a>
+      <a href="#acerca">Acerca de</a>
+      <a href="#contacto" class="nav-cta">Contacto</a>
+    </nav>
+    <button class="ham" id="ham-btn" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENÚ MÓVIL -->
+<div id="mob-menu" style="display:none;position:fixed;top:110px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--orange);box-shadow:0 8px 32px rgba(44,36,22,0.10);z-index:190;padding:14px 24px;flex-direction:column;gap:4px;">
+  <a href="#articulos" onclick="closeMob()" style="font-family:'Nunito Sans',sans-serif;font-size:15px;font-weight:700;color:var(--ink);padding:12px 16px;border-radius:8px;text-decoration:none;display:block;">Artículos</a>
+  <a href="#acerca"    onclick="closeMob()" style="font-family:'Nunito Sans',sans-serif;font-size:15px;font-weight:700;color:var(--ink);padding:12px 16px;border-radius:8px;text-decoration:none;display:block;">Acerca de</a>
+  <a href="#contacto"  onclick="closeMob()" style="font-family:'Nunito Sans',sans-serif;font-size:15px;font-weight:700;color:#fff;background:var(--orange);padding:12px 16px;border-radius:8px;text-decoration:none;display:block;">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-left">
+    <div class="hero-tag"><div class="hero-tag-dot"></div><span>Educación financiera práctica</span></div>
+    <h1 class="hero-h1">Registra tus<br/><em>ingresos y gastos</em><br/>con claridad</h1>
+    <p class="hero-p">Guía educativa gratuita para emprendedores venezolanos y latinoamericanos. Sin contadores, sin software caro, sin complicaciones.</p>
+    <div class="hero-btns">
+      <a href="#articulos" class="btn-a">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 4h11M2 7.5h7M2 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        Ver artículos
+      </a>
+      <a href="#acerca" class="btn-b">Quién está detrás →</a>
+    </div>
+    <div class="hero-kpis">
+      <div class="kpi"><div class="kpi-n">6+</div><div class="kpi-l">Artículos</div></div>
+      <div class="kpi"><div class="kpi-n">100%</div><div class="kpi-l">Gratuito</div></div>
+      <div class="kpi"><div class="kpi-n">0</div><div class="kpi-l">Servicios vendidos</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-pattern"></div>
+    <div class="hero-right-glow"></div>
+    <div class="hero-right-content">
+      <div class="id-card">
+        <div class="id-card-hd">Sobre este blog</div>
+        <div class="id-sect-lbl y">✔ Esto sí es</div>
+        <div class="id-row"><span>📖</span> Contenido educativo e informativo</div>
+        <div class="id-row"><span>🌐</span> Blog independiente sin afiliación</div>
+        <div class="id-row"><span>🇻🇪</span> Para Venezuela y Latinoamérica</div>
+        <div class="id-div"></div>
+        <div class="id-sect-lbl n">✘ Esto NO es</div>
+        <div class="id-row"><span>❌</span> No presta servicios financieros</div>
+        <div class="id-row"><span>❌</span> No es web oficial de ningún banco</div>
+        <div class="id-row"><span>❌</span> No vende ni capta datos comerciales</div>
+        <div class="id-owner">
+          <div class="id-av">M</div>
+          <div>
+            <div class="id-on">MOISES ELIAS LARA CANO</div>
+            <div class="id-or">Titular · Valencia, Carabobo, Venezuela</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADS -->
+<div class="ads"><div class="ads-in"><div class="ads-box">Espacio publicitario · Google AdSense</div></div></div>
+
+<!-- ARTÍCULOS -->
+<main class="arts" id="articulos">
+  <div class="sec-hd">
+    <div>
+      <div class="sec-ey">Contenido educativo</div>
+      <h2 class="sec-tt">Artículos para tu negocio</h2>
+    </div>
+    <p class="sec-ds">Contenido solo informativo.<br/>No constituye asesoría financiera.</p>
+  </div>
+
+  <div class="arts-list">
+
+    <!-- DESTACADO -->
+    <div class="art-feat" onclick="openA('a1')" role="article" tabindex="0" onkeypress="if(event.key==='Enter')openA('a1')">
+      <div>
+        <div class="art-meta"><span class="tag t-or">Fundamentos</span><span class="art-date">1 jun 2025</span></div>
+        <div class="art-title">¿Qué es un registro de ingresos y gastos y por qué lo necesita tu negocio?</div>
+        <p class="art-exc">La base de cualquier gestión financiera sana. Explicamos qué información contiene este registro básico y por qué es indispensable incluso para el negocio más pequeño.</p>
+        <div class="art-foot">
+          <span class="art-auth">Por: <strong>MOISES ELIAS LARA CANO</strong></span>
+          <span class="art-cta">Leer artículo completo →</span>
+        </div>
+        <p class="art-notice">Contenido informativo. No constituye asesoría financiera personalizada.</p>
+      </div>
+      <div class="feat-visual">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+          <rect x="10" y="8" width="52" height="58" rx="6" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+          <rect x="20" y="22" width="32" height="3" rx="1.5" fill="rgba(255,255,255,0.4)"/>
+          <rect x="20" y="30" width="22" height="3" rx="1.5" fill="rgba(255,255,255,0.22)"/>
+          <rect x="20" y="38" width="28" height="3" rx="1.5" fill="rgba(255,255,255,0.22)"/>
+          <path d="M20 54 L28 42 L34 48 L42 38 L52 54" stroke="#F28040" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="42" cy="38" r="3" fill="#F28040"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- ART 2 -->
+    <div class="art-item" onclick="openA('a2')" role="article" tabindex="0" onkeypress="if(event.key==='Enter')openA('a2')">
+      <div class="art-num">02</div>
+      <div class="art-info">
+        <div class="art-meta"><span class="tag t-ol">Práctica</span><span class="art-date">8 jun 2025</span></div>
+        <div class="art-title">Cómo llevar el registro a mano: pasos claros para empezar hoy</div>
+        <p class="art-exc">Guía paso a paso para crear tu primer libro de entradas y salidas sin computadora ni apps. Solo papel, bolígrafo y constancia diaria.</p>
+        <div class="art-foot">
+          <span class="art-auth">Por: <strong>MOISES ELIAS LARA CANO</strong></span>
+          <span class="art-cta">Leer →</span>
+        </div>
+        <p class="art-notice">Contenido informativo. No constituye asesoría financiera.</p>
+      </div>
+    </div>
+
+    <!-- ART 3 -->
+    <div class="art-item" onclick="openA('a3')" role="article" tabindex="0" onkeypress="if(event.key==='Enter')openA('a3')">
+      <div class="art-num">03</div>
+      <div class="art-info">
+        <div class="art-meta"><span class="tag t-am">Datos diarios</span><span class="art-date">15 jun 2025</span></div>
+        <div class="art-title">Qué datos anotar cada día en tu negocio (y cuáles puedes omitir)</div>
+        <p class="art-exc">¿Demasiado detalle o muy poco? Te explicamos exactamente qué columnas son esenciales y cuáles puedes dejar para cuando el negocio crezca.</p>
+        <div class="art-foot">
+          <span class="art-auth">Por: <strong>MOISES ELIAS LARA CANO</strong></span>
+          <span class="art-cta">Leer →</span>
+        </div>
+        <p class="art-notice">Contenido informativo. No constituye asesoría financiera.</p>
+      </div>
+    </div>
+
+    <!-- ART 4 -->
+    <div class="art-item" onclick="openA('a4')" role="article" tabindex="0" onkeypress="if(event.key==='Enter')openA('a4')">
+      <div class="art-num">04</div>
+      <div class="art-info">
+        <div class="art-meta"><span class="tag t-or">Errores frecuentes</span><span class="art-date">22 jun 2025</span></div>
+        <div class="art-title">5 errores comunes al no registrar los movimientos de dinero en tu negocio</div>
+        <p class="art-exc">Desde mezclar caja personal con la del negocio hasta no revisar el registro: los errores más frecuentes y cómo evitarlos.</p>
+        <div class="art-foot">
+          <span class="art-auth">Por: <strong>MOISES ELIAS LARA CANO</strong></span>
+          <span class="art-cta">Leer →</span>
+        </div>
+        <p class="art-notice">Contenido informativo. No constituye asesoría financiera.</p>
+      </div>
+    </div>
+
+    <!-- ART 5 -->
+    <div class="art-item" onclick="openA('a5')" role="article" tabindex="0" onkeypress="if(event.key==='Enter')openA('a5')">
+      <div class="art-num">05</div>
+      <div class="art-info">
+        <div class="art-meta"><span class="tag t-ol">Herramientas</span><span class="art-date">1 jul 2025</span></div>
+        <div class="art-title">Hoja de cálculo simple vs cuaderno: ¿cuál conviene a tu negocio?</div>
+        <p class="art-exc">Comparación objetiva de ambas opciones en accesibilidad, costo, velocidad y fiabilidad para emprendedores venezolanos y latinoamericanos.</p>
+        <div class="art-foot">
+          <span class="art-auth">Por: <strong>MOISES ELIAS LARA CANO</strong></span>
+          <span class="art-cta">Leer →</span>
+        </div>
+        <p class="art-notice">Contenido informativo. No constituye asesoría financiera.</p>
+      </div>
+    </div>
+
+    <!-- ART 6 -->
+    <div class="art-item" onclick="openA('a6')" role="article" tabindex="0" onkeypress="if(event.key==='Enter')openA('a6')">
+      <div class="art-num">06</div>
+      <div class="art-info">
+        <div class="art-meta"><span class="tag t-vi">Conceptos clave</span><span class="art-date">8 jul 2025</span></div>
+        <div class="art-title">Diferencia entre ingreso, utilidad y flujo de caja: guía básica para no confundirlos</div>
+        <p class="art-exc">Tres conceptos que todo emprendedor escucha pero pocos distinguen. Explicación simple con ejemplos del día a día de un negocio pequeño.</p>
+        <div class="art-foot">
+          <span class="art-auth">Por: <strong>MOISES ELIAS LARA CANO</strong></span>
+          <span class="art-cta">Leer →</span>
+        </div>
+        <p class="art-notice">Contenido informativo. No constituye asesoría financiera.</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ADS MID -->
+<div class="ads"><div class="ads-in"><div class="ads-box">Espacio publicitario · Google AdSense</div></div></div>
+
+<!-- ACERCA DE -->
+<section class="about" id="acerca">
+  <div class="about-in">
+    <div>
+      <div class="sec-ey" style="margin-bottom:8px;">Quiénes somos</div>
+      <h2 class="sec-tt" style="margin-bottom:24px;">Acerca de Activo Empresa Fila</h2>
+      <p style="font-size:14.5px;color:var(--ink-mid);line-height:1.82;margin-bottom:16px;"><strong>Activo Empresa Fila</strong> es un blog educativo independiente creado para ayudar a emprendedores venezolanos y latinoamericanos a entender y aplicar el registro de ingresos y gastos en sus negocios, sin importar su tamaño ni sus conocimientos contables.</p>
+      <p style="font-size:14.5px;color:var(--ink-mid);line-height:1.82;margin-bottom:16px;">Todo el contenido es gratuito, informativo y educativo. No somos una firma contable, no prestamos asesoría personalizada y no vendemos ningún producto o servicio.</p>
+      <p style="font-size:14.5px;color:var(--ink-mid);line-height:1.82;margin-bottom:24px;">Creemos que el orden financiero básico es el primer paso para que cualquier negocio pequeño sobreviva, crezca y prospere.</p>
+      <div style="background:var(--beige);border:1.5px solid var(--border);border-radius:12px;padding:20px 22px;">
+        <p style="font-size:12px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">Objetivo editorial</p>
+        <p style="font-size:13.5px;color:var(--ink-mid);line-height:1.7;">Publicar contenido verificable sobre gestión financiera básica. La publicidad de Google AdSense mostrada en este sitio no influye en los temas ni en el contenido de los artículos. Ningún anunciante tiene acceso editorial.</p>
+      </div>
+    </div>
+    <div>
+      <div class="about-card">
+        <div class="about-avatar">M</div>
+        <div class="about-name">MOISES ELIAS LARA CANO</div>
+        <div class="about-role">Titular y responsable editorial</div>
+        <div class="about-ci"><span>📍</span><span>Calle 145, Valencia 2002, Carabobo, Venezuela</span></div>
+        <div class="about-ci"><span>✉️</span><a href="mailto:soporte@activoempresarfila.blog">soporte@activoempresarfila.blog</a></div>
+        <div class="about-ci"><span>📞</span><a href="tel:+584144215397">+58 414 4215397</a></div>
+        <div class="about-ind">
+          <p><strong>Declaración de independencia:</strong> Este blog no tiene afiliación, vínculo comercial ni representación oficial con ningún banco, institución financiera, gobierno ni organización privada de ningún tipo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact" id="contacto">
+  <div class="contact-in">
+    <div class="cf-box">
+      <h3>Escríbenos</h3>
+      <p>Solo consultas editoriales. No prestamos asesoría financiera personalizada por este medio.</p>
+      <form id="cf" onsubmit="enviar(event)" novalidate>
+        <div class="fg"><label class="fl" for="fn">Nombre</label><input class="fi" type="text" id="fn" placeholder="Tu nombre completo" required autocomplete="name"/></div>
+        <div class="fg"><label class="fl" for="fe">Correo electrónico</label><input class="fi" type="email" id="fe" placeholder="tucorreo@ejemplo.com" required autocomplete="email"/></div>
+        <div class="fg"><label class="fl" for="fm">Mensaje</label><textarea class="ft" id="fm" placeholder="Escribe tu consulta editorial..." required></textarea></div>
+        <p class="cf-note">Al enviar aceptas nuestra <button type="button" onclick="openL('lp')">política de privacidad</button>. No pedimos contraseñas, datos bancarios ni documentos de identidad.</p>
+        <button type="submit" class="cf-submit">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Enviar mensaje
+        </button>
+      </form>
+      <div class="cf-ok" id="cf-ok">✅ ¡Mensaje recibido! Te responderemos a la brevedad.</div>
+    </div>
+    <div class="cinfo">
+      <h3>Información de contacto</h3>
+      <p>Puedes contactarnos directamente para consultas editoriales por cualquiera de estos medios.</p>
+      <div class="ci-item"><div class="ci-ic">👤</div><div><div class="ci-lb">Titular</div><div class="ci-vl">MOISES ELIAS LARA CANO</div></div></div>
+      <div class="ci-item"><div class="ci-ic">✉️</div><div><div class="ci-lb">Correo</div><div class="ci-vl"><a href="mailto:soporte@activoempresarfila.blog">soporte@activoempresarfila.blog</a></div></div></div>
+      <div class="ci-item"><div class="ci-ic">📞</div><div><div class="ci-lb">Teléfono / WhatsApp</div><div class="ci-vl"><a href="tel:+584144215397">+58 414 4215397</a></div></div></div>
+      <div class="ci-item"><div class="ci-ic">📍</div><div><div class="ci-lb">Dirección</div><div class="ci-vl">Calle 145, Valencia 2002, Carabobo, Venezuela</div></div></div>
+      <div class="anti-ph"><p><strong>⚠️ Aviso anti-phishing:</strong> Este blog nunca te pedirá contraseñas, datos bancarios ni documentos de identidad. Si recibes un mensaje solicitando eso, no es de este sitio.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-aff">
+      <p><strong>Declaración de independencia:</strong> Activo Empresa Fila no tiene afiliación, vínculo comercial ni representación oficial con ningún banco, institución financiera, gobierno ni organización privada. Todo el contenido es exclusivamente informativo y educativo, producido de forma independiente por MOISES ELIAS LARA CANO.</p>
+    </div>
+    <div class="ftr-grid">
+      <div>
+        <div class="ftr-ln">Activo Empresa Fila</div>
+        <div class="ftr-ls">Blog educativo independiente</div>
+        <p class="ftr-ab">Blog sobre registro de ingresos y gastos para pequeños negocios. Contenido gratuito e independiente.</p>
+        <div class="ftr-ci"><span>👤</span><span><strong style="color:rgba(255,255,255,0.65)">Titular:</strong> MOISES ELIAS LARA CANO</span></div>
+        <div class="ftr-ci"><span>✉️</span><a href="mailto:soporte@activoempresarfila.blog">soporte@activoempresarfila.blog</a></div>
+        <div class="ftr-ci"><span>📍</span><span>Calle 145, Valencia 2002, Carabobo, Venezuela</span></div>
+        <div class="ftr-ci"><span>📞</span><a href="tel:+584144215397">+58 414 4215397</a></div>
+      </div>
+      <div>
+        <div class="ftr-ct">Navegación</div>
+        <ul class="ftr-lk">
+          <li><a href="#inicio">→ Inicio</a></li>
+          <li><a href="#articulos">→ Artículos</a></li>
+          <li><a href="#acerca">→ Acerca de</a></li>
+          <li><a href="#contacto">→ Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ftr-ct">Categorías</div>
+        <ul class="ftr-lk">
+          <li><a href="#articulos">→ Fundamentos</a></li>
+          <li><a href="#articulos">→ Práctica diaria</a></li>
+          <li><a href="#articulos">→ Errores frecuentes</a></li>
+          <li><a href="#articulos">→ Herramientas</a></li>
+          <li><a href="#articulos">→ Conceptos clave</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ftr-ct">Legal y políticas</div>
+        <ul class="ftr-lk">
+          <li><button onclick="openL('lp')">→ Política de privacidad</button></li>
+          <li><button onclick="openL('la')">→ Aviso legal</button></li>
+          <li><button onclick="openL('le')" id="politica-editorial">→ Política editorial</button></li>
+        </ul>
+        <div style="margin-top:18px;padding:13px;background:rgba(212,85,10,0.12);border:1px solid rgba(212,85,10,0.2);border-radius:10px;">
+          <p style="font-size:11px;color:rgba(255,255,255,0.45);line-height:1.6;"><strong style="color:var(--orange-md)">Publicidad:</strong> Este blog muestra anuncios de Google AdSense. La publicidad no influye en el contenido editorial.</p>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-bot">
+      <p>© 2025 Activo Empresa Fila — MOISES ELIAS LARA CANO. Todos los derechos reservados.</p>
+      <p>Contenido solo informativo · No asesoría financiera</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ OVERLAYS ARTÍCULOS ══ -->
+
+<!-- A1 -->
+<div id="a1" class="aov">
+  <div class="aov-box">
+    <div class="aov-hdr">
+      <div><div style="margin-bottom:8px;"><span class="tag t-or">Fundamentos</span></div><div class="aov-tt">¿Qué es un registro de ingresos y gastos y por qué lo necesita tu negocio?</div><div class="aov-mt">Por MOISES ELIAS LARA CANO · 1 de junio de 2025</div></div>
+      <button class="aov-cl" onclick="closeA('a1')">✕</button>
+    </div>
+    <div class="aov-bd">
+      <h2>¿Qué es exactamente este registro?</h2>
+      <p>Un registro de ingresos y gastos es una anotación ordenada y sistemática de todo el dinero que entra y sale de tu negocio. Es la forma más básica de contabilidad que existe y no requiere conocimientos especializados para llevarlo.</p>
+      <p>En su forma más simple puede ser un cuaderno donde cada día anotas: fecha, descripción, monto que entró (ingreso) o que salió (gasto), y el saldo resultante.</p>
+      <div class="aov-tip"><strong>💡 Clave:</strong> No necesitas ser contador. Lo único que necesitas es constancia y honestidad al anotar cada movimiento de dinero del negocio.</div>
+      <h2>¿Por qué es indispensable aunque tu negocio sea pequeño?</h2>
+      <p>Muchos emprendedores creen que solo los negocios grandes necesitan registros. Error. Precisamente los pequeños son más vulnerables porque suelen mezclar finanzas personales con las del negocio. Sin registro, no puedes saber si realmente estás ganando o perdiendo.</p>
+      <h2>¿Qué información básica debe contener?</h2>
+      <ul>
+        <li><strong>Fecha:</strong> día, mes y año de cada operación.</li>
+        <li><strong>Descripción:</strong> qué ocurrió (venta de X, pago de alquiler, compra de insumos).</li>
+        <li><strong>Ingreso:</strong> todo dinero que entró al negocio.</li>
+        <li><strong>Gasto:</strong> todo dinero que salió del negocio.</li>
+        <li><strong>Saldo:</strong> lo disponible después de la operación.</li>
+      </ul>
+      <h2>¿Con qué frecuencia actualizarlo?</h2>
+      <p>Lo ideal es actualizar el registro diariamente, al cierre de operaciones. Si dejas pasar varios días, empiezas a olvidar detalles y el registro pierde precisión. Dedica 5 a 10 minutos al final de cada jornada.</p>
+      <div class="aov-tip"><strong>📌 Regla de oro:</strong> Un registro desactualizado vale menos que uno que no existe, porque puede engañarte. Actualízalo siempre al día.</div>
+      <p class="aov-nc">Contenido informativo y educativo. No constituye asesoría financiera personalizada. Para situaciones específicas, consulta a un contador profesional.</p>
+    </div>
+  </div>
+</div>
+
+<!-- A2 -->
+<div id="a2" class="aov">
+  <div class="aov-box">
+    <div class="aov-hdr">
+      <div><div style="margin-bottom:8px;"><span class="tag t-ol">Práctica</span></div><div class="aov-tt">Cómo llevar el registro a mano: pasos claros para empezar hoy</div><div class="aov-mt">Por MOISES ELIAS LARA CANO · 8 de junio de 2025</div></div>
+      <button class="aov-cl" onclick="closeA('a2')">✕</button>
+    </div>
+    <div class="aov-bd">
+      <h2>Materiales que necesitas</h2>
+      <p>Un cuaderno de tamaño mediano (preferiblemente cuadriculado), un bolígrafo y 10 minutos al final de cada día. Eso es todo lo que necesitas para empezar.</p>
+      <h2>Paso 1: Diseña tu tabla de registro</h2>
+      <p>En la primera página dibuja una tabla con 5 columnas: Fecha | Descripción | Ingreso | Gasto | Saldo. Deja espacio suficiente en cada fila para escribir con claridad.</p>
+      <div class="aov-tip"><strong>💡 Consejo:</strong> Si trabajas en bolívares y en dólares, lleva columnas separadas o convierte todo a la misma moneda con la tasa del día.</div>
+      <h2>Paso 2: Anota el saldo inicial</h2>
+      <p>Antes de empezar a registrar operaciones diarias, anota el dinero con que cuenta el negocio hoy. Sé honesto: incluye solo el dinero del negocio, no el personal.</p>
+      <h2>Paso 3: Registra cada operación del día</h2>
+      <p>Al finalizar cada jornada, anota cronológicamente todo lo que ocurrió: cada venta (ingreso), cada compra de insumos (gasto), cada pago de servicio (gasto), cada cobro pendiente que llegó (ingreso).</p>
+      <h2>Paso 4: Calcula el saldo al cierre</h2>
+      <p>Saldo anterior + Ingresos del día − Gastos del día = Saldo de cierre. Este saldo es el saldo inicial del día siguiente.</p>
+      <h2>Paso 5: Revisa semanalmente</h2>
+      <p>Una vez por semana suma todos los ingresos y todos los gastos. Compara con la semana anterior. Con el tiempo verás patrones: qué días vendes más, qué gastos se repiten, en qué meses hay más movimiento.</p>
+      <p class="aov-nc">Contenido informativo y educativo. No constituye asesoría financiera personalizada.</p>
+    </div>
+  </div>
+</div>
+
+<!-- A3 -->
+<div id="a3" class="aov">
+  <div class="aov-box">
+    <div class="aov-hdr">
+      <div><div style="margin-bottom:8px;"><span class="tag t-am">Datos diarios</span></div><div class="aov-tt">Qué datos anotar cada día en tu negocio (y cuáles puedes omitir)</div><div class="aov-mt">Por MOISES ELIAS LARA CANO · 15 de junio de 2025</div></div>
+      <button class="aov-cl" onclick="closeA('a3')">✕</button>
+    </div>
+    <div class="aov-bd">
+      <h2>Datos que SÍ debes anotar siempre</h2>
+      <ul>
+        <li><strong>Fecha exacta</strong> de cada operación.</li>
+        <li><strong>Descripción breve</strong> de qué fue.</li>
+        <li><strong>Monto exacto</strong> en la moneda correspondiente.</li>
+        <li><strong>Categoría:</strong> ingreso por ventas, cobro pendiente, gasto fijo o variable.</li>
+        <li><strong>Método de pago:</strong> efectivo, transferencia, pago móvil.</li>
+      </ul>
+      <div class="aov-tip"><strong>💡 Por qué importa la categoría:</strong> Al separar gastos fijos de variables puedes identificar cuáles puedes controlar y cuáles no.</div>
+      <h2>Datos que puedes omitir al inicio</h2>
+      <p>No te compliques al comenzar con: número de factura, código de producto, nombre del cliente (salvo crédito), ni detalle de inventario por unidad. Eso viene cuando el negocio crezca y necesites más detalle.</p>
+      <h2>El error más común: el "ya lo recuerdo"</h2>
+      <p>Muchos emprendedores confían en la memoria para las operaciones pequeñas. Al final del mes esos pequeños montos pueden sumar cantidades significativas que simplemente desaparecen de las cuentas sin explicación.</p>
+      <div class="aov-tip"><strong>📌 Regla práctica:</strong> Si involucra dinero, se anota. Sin excepciones. El monto mínimo para registrar es cero.</div>
+      <h2>¿Con qué frecuencia revisar las categorías?</h2>
+      <p>Al cierre de cada mes revisa tus categorías de gastos. Si una crece mucho mes a mes sin justificación, ahí hay algo que investigar.</p>
+      <p class="aov-nc">Contenido informativo y educativo. No constituye asesoría financiera personalizada.</p>
+    </div>
+  </div>
+</div>
+
+<!-- A4 -->
+<div id="a4" class="aov">
+  <div class="aov-box">
+    <div class="aov-hdr">
+      <div><div style="margin-bottom:8px;"><span class="tag t-or">Errores frecuentes</span></div><div class="aov-tt">5 errores comunes al no registrar los movimientos de dinero en tu negocio</div><div class="aov-mt">Por MOISES ELIAS LARA CANO · 22 de junio de 2025</div></div>
+      <button class="aov-cl" onclick="closeA('a4')">✕</button>
+    </div>
+    <div class="aov-bd">
+      <h2>Error 1: Mezclar dinero personal con el del negocio</h2>
+      <p>El más frecuente y dañino. Cuando pagas gastos personales con el dinero del negocio pierdes completamente la noción de cuánto gana realmente. Con el tiempo no sabes si el negocio te sostiene o tú estás sosteniendo al negocio.</p>
+      <div class="aov-tip"><strong>✅ Solución:</strong> Define un "sueldo" fijo que el negocio te paga a ti como dueño y anótalo como gasto. Lo que queda después de ese sueldo es la ganancia real.</div>
+      <h2>Error 2: Registrar solo cuando hay tiempo</h2>
+      <p>El resultado es un cuaderno incompleto que más confunde que ayuda. Un registro parcial puede llevar a decisiones equivocadas.</p>
+      <h2>Error 3: No registrar los gastos pequeños</h2>
+      <p>El transporte de 2 dólares, el café de la reunión, el sobre para enviar un documento. Sumados en un mes pueden representar entre el 5% y el 15% de los gastos totales de un negocio pequeño.</p>
+      <h2>Error 4: No separar ingresos por ventas de ingresos por préstamos</h2>
+      <p>Si un familiar te presta dinero y lo anotas como ingreso por ventas, tu registro muestra que vendiste más de lo que realmente vendiste. Eso distorsiona toda la lectura financiera del mes.</p>
+      <h2>Error 5: No revisar el registro, solo llenarlo</h2>
+      <p>El registro tiene valor solo si lo lees y analizas. Al menos una vez por semana dedica 15 minutos a leer tus números: ¿en qué gasté más? ¿Vendí más o menos que la semana pasada?</p>
+      <p class="aov-nc">Contenido informativo y educativo. No constituye asesoría financiera personalizada.</p>
+    </div>
+  </div>
+</div>
+
+<!-- A5 -->
+<div id="a5" class="aov">
+  <div class="aov-box">
+    <div class="aov-hdr">
+      <div><div style="margin-bottom:8px;"><span class="tag t-ol">Herramientas</span></div><div class="aov-tt">Hoja de cálculo simple vs cuaderno: ¿cuál conviene a tu negocio?</div><div class="aov-mt">Por MOISES ELIAS LARA CANO · 1 de julio de 2025</div></div>
+      <button class="aov-cl" onclick="closeA('a5')">✕</button>
+    </div>
+    <div class="aov-bd">
+      <h2>El cuaderno físico: ventajas y limitaciones</h2>
+      <p><strong>Ventajas:</strong> No requiere electricidad ni internet, económico, sin curva de aprendizaje, difícil de borrar accidentalmente.</p>
+      <p><strong>Limitaciones:</strong> No hace cálculos automáticos, puede perderse o dañarse, difícil de buscar o filtrar, requiere sumas a mano.</p>
+      <h2>La hoja de cálculo: ventajas y limitaciones</h2>
+      <p><strong>Ventajas:</strong> Calcula automáticamente, permite filtrar por fecha o categoría, genera gráficos, admite copias de seguridad en la nube.</p>
+      <p><strong>Limitaciones:</strong> Requiere dispositivo con batería, necesita conocimiento básico de Excel o Google Sheets, puede corromperse si no se guarda bien.</p>
+      <div class="aov-tip"><strong>💡 Para Venezuela:</strong> Dado el contexto de intermitencia eléctrica y de internet, lo más práctico es el registro físico como principal y la hoja de cálculo como complemento semanal de revisión.</div>
+      <h2>¿Cuándo migrar al digital?</h2>
+      <p>Cuando manejes más de 30 operaciones diarias, necesites consultar datos de meses anteriores frecuentemente, o vayas a presentar información a un banco o inversor.</p>
+      <h2>La respuesta real</h2>
+      <p>La mejor herramienta es la que realmente vas a usar todos los días. Un cuaderno al día vale mucho más que una hoja de cálculo perfecta que abres una vez al mes.</p>
+      <p class="aov-nc">Contenido informativo y educativo. No constituye asesoría financiera personalizada.</p>
+    </div>
+  </div>
+</div>
+
+<!-- A6 -->
+<div id="a6" class="aov">
+  <div class="aov-box">
+    <div class="aov-hdr">
+      <div><div style="margin-bottom:8px;"><span class="tag t-vi">Conceptos clave</span></div><div class="aov-tt">Diferencia entre ingreso, utilidad y flujo de caja: guía básica para no confundirlos</div><div class="aov-mt">Por MOISES ELIAS LARA CANO · 8 de julio de 2025</div></div>
+      <button class="aov-cl" onclick="closeA('a6')">✕</button>
+    </div>
+    <div class="aov-bd">
+      <h2>Ingreso: todo lo que entra</h2>
+      <p>El ingreso es cualquier dinero que entra al negocio, independientemente de su origen: ventas del día, cobros de cuentas pendientes, préstamos recibidos. Pero no todo ingreso es ganancia; un préstamo entra como ingreso pero también es una deuda que deberás devolver.</p>
+      <h2>Utilidad: lo que realmente ganaste</h2>
+      <p>La utilidad es lo que queda después de restar todos los costos y gastos del negocio a los ingresos por ventas. Fórmula básica: <strong>Utilidad = Ventas − Costos − Gastos</strong>.</p>
+      <p>Un negocio puede tener muchos ingresos y poca utilidad si sus costos son muy altos. Esto es más común de lo que parece en negocios pequeños.</p>
+      <div class="aov-tip"><strong>💡 Ejemplo práctico:</strong> Vendes Bs. 500 en el día. Pero compraste insumos por Bs. 300, pagaste transporte por Bs. 50 y gas por Bs. 40. Tu utilidad del día es Bs. 110, no Bs. 500.</div>
+      <h2>Flujo de caja: el dinero disponible ahora</h2>
+      <p>El flujo de caja es el movimiento real del dinero: cuánto entró y salió en efectivo. Un negocio puede ser rentable en papel pero tener problemas de flujo de caja si sus clientes pagan a crédito y sus proveedores cobran al contado.</p>
+      <h2>¿Por qué importa distinguirlos?</h2>
+      <p>Confundir estos tres conceptos lleva a decisiones equivocadas. Muchos emprendedores creen que porque tienen dinero en caja están ganando. El registro ordenado de ingresos y gastos es la única forma de ver la diferencia con claridad.</p>
+      <p class="aov-nc">Contenido informativo y educativo. No constituye asesoría financiera personalizada. Para cálculos específicos, consulta a un contador profesional.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ OVERLAYS LEGALES ══ -->
+
+<!-- PRIVACIDAD -->
+<div id="lp" class="lov">
+  <div class="lov-box">
+    <div class="lov-hdr"><div><div class="lov-tt">Política de Privacidad y Cookies</div><div class="lov-mt">Última actualización: 1 de junio de 2025 · Titular: MOISES ELIAS LARA CANO</div></div><button class="lov-cl" onclick="closeL('lp')">✕</button></div>
+    <div class="lov-bd">
+      <div class="lov-sec"><h3>1. Responsable</h3><p>MOISES ELIAS LARA CANO · Calle 145, Valencia 2002, Carabobo, Venezuela · soporte@activoempresarfila.blog</p></div>
+      <div class="lov-sec"><h3>2. Datos recopilados</h3><p>Solo los del formulario de contacto: nombre, correo y mensaje. No recopilamos contraseñas, datos bancarios ni documentos de identidad.</p></div>
+      <div class="lov-sec"><h3>3. Finalidad</h3><p>Responder consultas editoriales. No se ceden datos a terceros con fines comerciales.</p></div>
+      <div class="lov-sec"><h3>4. Cookies</h3><p>Cookies técnicas necesarias y de publicidad de Google AdSense. Puedes gestionarlas desde tu navegador. Más información en la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Política de privacidad de Google</a>.</p></div>
+      <div class="lov-sec"><h3>5. Derechos</h3><p>Acceso, rectificación o eliminación de datos: soporte@activoempresarfila.blog</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- AVISO LEGAL -->
+<div id="la" class="lov">
+  <div class="lov-box">
+    <div class="lov-hdr"><div><div class="lov-tt">Aviso Legal</div><div class="lov-mt">activoempresafila.blog · 1 de junio de 2025</div></div><button class="lov-cl" onclick="closeL('la')">✕</button></div>
+    <div class="lov-bd">
+      <div class="lov-sec"><h3>1. Titularidad</h3><p>activoempresafila.blog es operado por MOISES ELIAS LARA CANO, Calle 145, Valencia 2002, Carabobo, Venezuela. Correo: soporte@activoempresarfila.blog</p></div>
+      <div class="lov-sec"><h3>2. Naturaleza del contenido</h3><p>Todo el contenido es informativo y educativo. No constituye asesoría financiera, contable ni legal. El lector asume la responsabilidad de sus propias decisiones económicas.</p></div>
+      <div class="lov-sec"><h3>3. Propiedad intelectual</h3><p>Los textos, diseño y logotipo son propiedad de MOISES ELIAS LARA CANO. Prohibida su reproducción sin autorización expresa.</p></div>
+      <div class="lov-sec"><h3>4. Ausencia de afiliación</h3><p>Activo Empresa Fila no tiene afiliación con ningún banco, institución financiera ni organización privada. Cualquier mención a terceros es exclusivamente informativa.</p></div>
+      <div class="lov-sec"><h3>5. Limitación de responsabilidad</h3><p>El titular no se hace responsable de perjuicios derivados del uso de la información publicada. Verifique siempre con fuentes oficiales.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- POLÍTICA EDITORIAL -->
+<div id="le" class="lov">
+  <div class="lov-box">
+    <div class="lov-hdr"><div><div class="lov-tt">Política Editorial</div><div class="lov-mt">activoempresafila.blog · Desde: 1 de junio de 2025</div></div><button class="lov-cl" onclick="closeL('le')">✕</button></div>
+    <div class="lov-bd">
+      <div class="lov-sec"><h3>1. Objetivo</h3><p>Publicar contenido educativo sobre registro de ingresos, gastos y conceptos financieros básicos para emprendedores venezolanos y latinoamericanos.</p></div>
+      <div class="lov-sec"><h3>2. Calidad</h3><p>Todo artículo debe ser original, verificable, en lenguaje claro y revisado por el titular antes de publicarse. Se citan fuentes cuando se mencionan datos o estadísticas.</p></div>
+      <div class="lov-sec"><h3>3. Independencia editorial</h3><p>La publicidad (Google AdSense) no influye en los temas tratados ni en el contenido de los artículos. Ningún anunciante tiene acceso editorial.</p></div>
+      <div class="lov-sec"><h3>4. Correcciones</h3><p>Los errores se corrigen con transparencia indicando la fecha de modificación. Notifica errores a soporte@activoempresarfila.blog</p></div>
+      <div class="lov-sec"><h3>5. Contenido prohibido</h3><p>No se publican: promesas de rendimientos, asesoría personalizada, publicidad encubierta ni contenido que induzca a confusión sobre la naturaleza independiente de este blog.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- COOKIE BANNER -->
+<div id="ck" class="cook">
+  <span style="font-size:22px;flex-shrink:0;">🍪</span>
+  <p class="cook-tx">Usamos cookies técnicas y de publicidad (Google AdSense). <button onclick="openL('lp')">Ver política de cookies</button></p>
+  <button class="cook-btn" onclick="aceptar()">Entendido</button>
+</div>
+
+<!-- ══ SCRIPTS ══ -->
+<script>
+  /* Artículos */
+  function openA(id) { var e=document.getElementById(id); if(!e)return; e.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeA(id){ var e=document.getElementById(id); if(!e)return; e.classList.remove('open'); document.body.style.overflow=''; }
+
+  /* Legales */
+  function openL(id) { var e=document.getElementById(id); if(!e)return; e.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeL(id){ var e=document.getElementById(id); if(!e)return; e.classList.remove('open'); document.body.style.overflow=''; }
+
+  /* Clic en fondo cierra overlay */
+  document.querySelectorAll('.aov,.lov').forEach(function(ov){
+    ov.addEventListener('click',function(e){ if(e.target===ov){ ov.classList.remove('open'); document.body.style.overflow=''; } });
+  });
+
+  /* ESC cierra */
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Escape')return;
+    document.querySelectorAll('.aov.open,.lov.open').forEach(function(ov){ ov.classList.remove('open'); document.body.style.overflow=''; });
+  });
+
+  /* Cookie banner */
+  function aceptar(){ var b=document.getElementById('ck'); if(b)b.classList.add('hidden'); try{localStorage.setItem('aef','1');}catch(e){} }
+  (function(){ try{ if(localStorage.getItem('aef')==='1'){ var b=document.getElementById('ck'); if(b)b.classList.add('hidden'); } }catch(e){} })();
+
+  /* Formulario */
+  function enviar(e){
+    e.preventDefault();
+    var n=document.getElementById('fn').value.trim();
+    var m=document.getElementById('fe').value.trim();
+    var t=document.getElementById('fm').value.trim();
+    if(!n||!m||!t){ alert('Por favor completa todos los campos antes de enviar.'); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)){ alert('Por favor ingresa un correo electrónico válido.'); return; }
+    document.getElementById('cf').style.display='none';
+    document.getElementById('cf-ok').style.display='block';
+  }
+
+  /* Hamburger */
+  var hb=document.getElementById('ham-btn'), mm=document.getElementById('mob-menu'), ho=false;
+  function closeMob(){ mm.style.display='none'; hb.setAttribute('aria-expanded','false'); var s=hb.querySelectorAll('span'); s[0].style.transform=''; s[1].style.opacity=''; s[2].style.transform=''; ho=false; }
+  hb.addEventListener('click',function(){
+    ho=!ho;
+    if(ho){ mm.style.display='flex'; hb.setAttribute('aria-expanded','true'); var s=hb.querySelectorAll('span'); s[0].style.transform='rotate(45deg) translate(5px,5px)'; s[1].style.opacity='0'; s[2].style.transform='rotate(-45deg) translate(5px,-5px)'; }
+    else { closeMob(); }
+  });
+  document.addEventListener('click',function(e){ if(ho&&!hb.contains(e.target)&&!mm.contains(e.target))closeMob(); });
+
+  /* Scroll suave */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){ var t=document.querySelector(a.getAttribute('href')); if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); } });
+  });
+</script>
+
 </body>
 </html>
